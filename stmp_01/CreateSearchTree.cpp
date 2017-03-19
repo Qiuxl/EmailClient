@@ -1,0 +1,108 @@
+class CreateSearchTree()
+{
+    private:
+	    int value,across,vertical;
+		CreateSearchTree *leftmostChild;
+		CreateSearchTree *rightSibling;
+	public:
+	    int Value()
+		{
+			return value;
+		}
+		int Across()
+		{
+			return across;
+		}
+		int Vertical()
+		{
+			return vertical;
+		}
+		CreateSearchTree()
+		{
+			value=0;
+			across=0;
+			vertical=0;
+			leftmostChild=null;
+			rightSibling=null;
+		}
+		CreateSearchTree(int a,int b,int c)
+		{
+			value=a;
+			across=b;
+			vertical=c;
+			leftmostChild=null;
+			rightSibling=null;
+		}
+	    CreateSearchTree* LeftmostChild()
+		{
+		    return leftmostChild;
+		}
+		void setLeft(CreateSearchTree *b)
+		{
+			leftmostChild=(CreateSearchTree*)b;
+			
+		}
+		void setRight(CreateSearchTree *b)
+		{
+			rightSibling=(CreateSearchTree*)b;
+		}
+		CreateSearchTree* RightSibling()
+		{
+		    return rightSibling;
+		}
+		bool isLeaf()
+		{
+		     if(leftmostChild==null)
+			     return true;
+		     else 
+			     return false;
+		}
+		void setValue(const int &a)
+		{
+			value=a;
+		}
+		void setFirst(const int &a)
+		{
+			value=a;
+		}
+		void setSecond(const int &a)
+		{
+			value=a;
+		}
+	    CreateSearchTree *insertLeft(CreateSearchTree *root,int sum,int first,int second)
+		{
+			if(root==null)
+			    return new CreateSearchTree(sum,first,second);
+            root->setLeft(insert(root->LeftmostChild(),sum,first,second);			    
+			return root;
+			
+		}
+	    CreateSearchTree *insertRight(CreateSearchTree *root,int sum,int first,int second)
+		{
+			if(root==null)
+			    return new CreateSearchTree(sum,first,second);
+            root->setRight(insert(root->RightSibling(),sum,first,second);			    
+			return root;
+			
+		}
+		int compareToMax(CreateSearchTree *root,int temp)
+		{
+			if(root->Value()>temp&&root->Value()!=0)
+			{
+				temp=root->Value();
+				root=root->rightSibling();
+			    compareToMax(root);
+			}
+			return temp;
+		}
+		void returnMax(CreateSearchTree *root,int tempMax,int first,int second)
+		{
+			if(root->Value()==tempMax)
+			{
+				first=root->Across();
+				second=root->Vertical();
+		    }
+		}
+		void removeFirst();
+		void removeNext();
+}
